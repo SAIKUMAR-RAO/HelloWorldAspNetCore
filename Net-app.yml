@@ -1,0 +1,24 @@
+---
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: hello-dotnet
+spec:
+  replicas: 2
+  #template:
+   # metadata:
+    #  labels:
+     #   app: nginx-deployment-1
+    #spec:
+     # volumes:
+      #- name: task1-pv-storage
+       # persistentVolumeClaim:
+        # claimName: task1-pv-claim
+      containers:
+      - name: hello-dotnet
+        image: sai06/hello-dotnet:$BUILD_ID
+        ports:
+        - containerPort: 8080
+        #volumeMounts:
+        #- mountPath: "/var/log/nginx"
+        #  name: task1-pv-storage
